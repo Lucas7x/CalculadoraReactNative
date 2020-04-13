@@ -6,6 +6,7 @@ import {
   Button,
   TouchableOpacity
 } from 'react-native'
+import {estilos} from './components/estilos'
 
 export default class App extends Component {
   
@@ -77,13 +78,13 @@ export default class App extends Component {
       let row = []
       for(let j=0; j<3; j++) {
         row.push(
-          <TouchableOpacity onPress={() => this.buttonPressed(nums[i][j])} style={styles.btn}>
-            <Text style={styles.btntext}> {nums[i][j]} </Text>
+          <TouchableOpacity onPress={() => this.buttonPressed(nums[i][j])} style={estilos.btn}>
+            <Text style={estilos.btntext}> {nums[i][j]} </Text>
           </TouchableOpacity>
         )
       }
       rows.push(
-        <View style={styles.row}>
+        <View style={estilos.row}>
           {row}
         </View>
       ) 
@@ -93,25 +94,25 @@ export default class App extends Component {
     let ops = []
     for(let i=0; i<5; i++) {
       ops.push(
-        <TouchableOpacity onPress={() => this.operate(this.operations[i])} style={styles.btn}>
-          <Text style={[styles.btntext, styles.white]}> {this.operations[i]} </Text>
+        <TouchableOpacity onPress={() => this.operate(this.operations[i])} style={estilos.btn}>
+          <Text style={[estilos.btntext, estilos.white]}> {this.operations[i]} </Text>
         </TouchableOpacity>
       )
     }
 
     return (
-      <View style={styles.container}>
-        <View style={styles.calculation}>
-          <Text style={styles.calculationText}> {this.state.calculationText} </Text>
+      <View style={estilos.container}>
+        <View style={estilos.calculation}>
+          <Text style={estilos.calculationText}> {this.state.calculationText} </Text>
         </View>
-        <View style={styles.result}>
-          <Text style={styles.resultText}> {this.state.resultText} </Text>
+        <View style={estilos.result}>
+          <Text style={estilos.resultText}> {this.state.resultText} </Text>
         </View>
-        <View style={styles.buttons}>
-          <View style={styles.numbers}>
+        <View style={estilos.buttons}>
+          <View style={estilos.numbers}>
             {rows}
           </View>
-          <View style={styles.operations}>
+          <View style={estilos.operations}>
             {ops}
           </View>
         </View>
@@ -119,75 +120,3 @@ export default class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  row: {
-    flexDirection: 'row',
-    flex: 1,
-    justifyContent: 'space-around',
-    alignItems: 'center'
-  },
-  btntext: {
-    fontSize: 35,
-    color: 'white'
-  },
-  calculationText: {
-    fontSize: 20,
-    color: 'white'
-  },
-  resultText: {
-    fontSize: 35,
-    color: 'white'
-  },
-  btn: {
-    flex: 1,
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    fontSize: 25
-  },
-  result: {
-    flex: 2,
-    backgroundColor: '#4b4e53',
-    justifyContent: 'center',
-    alignItems: 'flex-end'
-  },
-  calculation: {
-    flex: 1.5,
-    backgroundColor: '#2f3439',
-    justifyContent: 'center',
-    alignItems: 'flex-end'
-  },
-  buttons: {
-    flexGrow: 5,
-    flexDirection: 'row'
-  },
-  numbers: {
-    flex: 3,
-    backgroundColor: '#2f3439'
-  },
-  operations: {
-    backgroundColor: '#ec4b05',
-    justifyContent: 'space-around',
-    alignItems: 'stretch'
-  },
-  white: {
-    color: 'white'
-  }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
